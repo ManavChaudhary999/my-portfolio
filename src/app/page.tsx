@@ -1,0 +1,61 @@
+import { Avatar } from "~/components/ui/avatar"
+import { ThemeToggle } from "~/components/theme-toggle"
+import { Github, Linkedin, Twitter } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { Navigation } from "~/components/navigation"
+import { Experience } from "~/components/experience"
+import { Projects } from "~/components/projects"
+// import { ThemeIndicator } from "~/components/theme-indicator"
+
+export default function Home() {
+  return (
+    <main className="container max-w-3xl mx-auto px-4 py-8">
+      <div className="flex flex-col items-center mb-12">
+        <Avatar className="w-24 h-24 mb-4">
+          <Image
+            src="/avatar.png?height=96&width=96"
+            alt="Ansub Khan"
+            width={96}
+            height={96}
+            className="rounded-full"
+          />
+        </Avatar>
+        <h1 className="text-2xl font-semibold mb-1">Manav Chaudhary</h1>
+        <p className="text-muted-foreground mb-4">Full Stack Developer</p>
+
+        <div className="flex space-x-4 mb-6">
+          <Link href="https://twitter.com" aria-label="Twitter">
+            <Twitter className="h-5 w-5" />
+          </Link>
+          <Link href="https://github.com" aria-label="GitHub">
+            <Github className="h-5 w-5" />
+          </Link>
+          <Link href="https://linkedin.com" aria-label="LinkedIn">
+            <Linkedin className="h-5 w-5" />
+          </Link>
+        </div>
+
+        <div className="fixed top-4 right-4 z-50">
+          <ThemeToggle />
+        </div>
+      </div>
+
+      <Navigation />
+
+      <section className="my-12">
+        <p className="text-lg leading-relaxed">
+          Hello! I'm Manav, a Lead Software Engineer & Designer. Passionate about crafting tools that empower developers
+          and designers to express themselves seamlessly.
+        </p>
+      </section>
+
+      <Experience />
+
+      <Projects />
+
+      {/* <ThemeIndicator /> */}
+    </main>
+  )
+}
+
