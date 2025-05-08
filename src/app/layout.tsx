@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 import { Inter, Nunito, PT_Sans } from "next/font/google"
 import "~/styles/globals.css"
 import { ThemeProvider } from "~/components/theme-provider"
+import { SharedHeader } from "~/components/shared-header"
+import { Navigation } from "~/components/navigation"
 
 const inter = Inter({ subsets: ["latin"] });
 const nunito = Nunito({ variable: "--font-nunito", subsets: ["latin"] });
@@ -27,7 +29,13 @@ export default function RootLayout({
       {/* <body className={inter.className}> */}
       <body className={`${nunito.variable} ${ptSans.variable} antialiased relative`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
-          <div className="min-h-screen transition-colors duration-1000">{children}</div>
+          <div className="min-h-screen transition-colors duration-1000">
+            <main className="container max-w-4xl mx-auto px-4 py-8">
+              <SharedHeader />
+              {/* <Navigation /> */}
+              {children}
+            </main>
+          </div>
         </ThemeProvider>
       </body>
     </html>

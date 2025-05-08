@@ -23,7 +23,7 @@ export function Experience() {
   ]
 
   return (
-    <section className="my-12">
+    <section id="blogs" className="my-12">
       <h2 className="text-xl font-semibold mb-6">Experience</h2>
       <div className="space-y-8">
         {experiences.map((exp, index) => (
