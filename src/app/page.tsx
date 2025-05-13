@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Navigation } from "~/components/navigation"
-import { ChevronRight, Home } from "lucide-react"
+import { Smile } from "lucide-react"
 import { Experience } from "~/components/experience"
 import { Projects } from "~/components/projects"
 
@@ -17,8 +17,9 @@ export default function HomePage() {
         <p className="text-lg leading-relaxed">
           Hello! I'm Manav, a Lead Software Engineer & Designer. Passionate about crafting tools that empower developers
           and designers to express themselves seamlessly.
-          <Link href="/about" className="block mt-4 text-primary hover:underline">
-            Click Here to Understand Me 😊
+          <Link href="/about" className="flex items-center gap-1 mt-4 text-primary hover:underline">
+            Understand Me Better
+            <Smile className="h-5 w-5" />
           </Link>
         </p>
       </section>

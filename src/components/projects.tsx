@@ -1,13 +1,16 @@
-import { Code, FileText, Layout } from "lucide-react"
+import { FolderCode } from "lucide-react"
 import ProjectCard from "./ProjectCard"
 import { projects } from "~/data/projects"
+import Link from "next/link";
 
 export function Projects() {
   const featuredProjects = projects.slice(0, 4);
 
   return (
     <section id="contact" className="my-12">
-      <h2 className="text-xl font-semibold mb-6">Featured Projects</h2>
+      {/* <div className="flex gap-6"> */}
+        <h2 className="text-xl font-semibold mb-6">Featured Projects</h2>
+      {/* </div> */}
       {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {projects.map((project, index) => (
           <div key={index} className="group">
@@ -22,6 +25,11 @@ export function Projects() {
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
+      
+      <Link href="/projects" className="flex items-center gap-1 mt-4 text-primary hover:underline">
+        Click Here to see all of my Projects
+        <FolderCode className="h-5 w-5" />
+      </Link>
     </section>
   )
 }

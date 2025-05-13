@@ -19,6 +19,10 @@ export default function ProjectsPage() {
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
+
+      <Link href="/" className="inline-block mt-8 text-primary hover:underline">
+          ← Back to Home
+        </Link>
     </>
   )
 }

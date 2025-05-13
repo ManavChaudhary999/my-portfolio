@@ -42,13 +42,13 @@ export default function ProjectCard({ project } : { project: Project}) {
                 </Link>
             </Button>
             <Button variant="outline" asChild>
-                <Link href={`/projects/${project.id}`}>
+                <Link prefetch={true} href={`/projects/${project.id}`}>
                     <ChevronRight className="h-4 w-4 mr-2" />
                     Case Study
                 </Link>
             </Button>
             <Button variant="outline" asChild>
-                <Link href={project.liveDemo}>
+                <Link target="_blank" href={project.liveDemo}>
                     <Globe className="h-4 w-4 mr-2" />
                     Live Demo
                 </Link>

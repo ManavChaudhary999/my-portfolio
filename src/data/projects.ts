@@ -2,13 +2,85 @@ import type { Project } from "~/types/project";
 
 export const projects: Project[] = [
   {
-    id: "portfolio",
-    title: "Personal Portfolio",
-    description: "A modern portfolio built with Next.js and Tailwind CSS",
-    sourceCode: "https://github.com/yourusername/portfolio",
-    liveDemo: "https://your-portfolio.com",
-    image: "/projects/portfolio-light.png",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    id: "eduvista",
+    title: "Eduvista",
+    description: "This is a modern LMS platform built with Nodejs and React",
+    sourceCode: "https://github.com/ManavChaudhary999/Course-Selling-App",
+    liveDemo: "https://eduvista.manavchaudhary.tech/",
+    image: "/projects/eduvista.png",
+    technologies: ["Node.js", "React", "S3", "Cloudfront", "Shadcn UI", "Postgres SQL"],
+    caseStudy: {
+      overview: "A personal portfolio website showcasing my work and experience",
+      challenges: [
+        "Creating a responsive design that works across all devices",
+        "Implementing dark mode with smooth transitions",
+      ],
+      solutions: [
+        "Used Tailwind CSS for responsive design",
+        "Implemented theme switching using Next.js and React context",
+      ],
+      outcomes: [
+        "Fast, responsive website with great user experience",
+        "Improved online presence and project showcase",
+      ],
+    },
+  },
+  {
+    id: "pdf-chat",
+    title: "Chat with PDF",
+    description: "Transform Your PDFs into Interactive Conversations",
+    sourceCode: "https://github.com/ManavChaudhary999/AI-PDF-Chat",
+    liveDemo: "https://ai-pdf-chat-nine.vercel.app/",
+    image: "/projects/aipdfchat.png",
+    technologies: ["Next.js", "Clerk", "Firebase", "Langchain", "Stripe", "CohereAI"],
+    caseStudy: {
+      overview: "A personal portfolio website showcasing my work and experience",
+      challenges: [
+        "Creating a responsive design that works across all devices",
+        "Implementing dark mode with smooth transitions",
+      ],
+      solutions: [
+        "Used Tailwind CSS for responsive design",
+        "Implemented theme switching using Next.js and React context",
+      ],
+      outcomes: [
+        "Fast, responsive website with great user experience",
+        "Improved online presence and project showcase",
+      ],
+    },
+  },
+  {
+    id: "cloud-drive",
+    title: "CloudDrive",
+    description: "Secure, fast, and easy file storage for the modern web",
+    sourceCode: "https://github.com/ManavChaudhary999/CloudDrive",
+    liveDemo: "https://cloudrive.manavchaudhary.tech/",
+    image: "/projects/cloudrive.png",
+    technologies: ["Next.js", "Clerk", "UploadThing", "DrizzleOrm", "ShadcnUI"],
+    caseStudy: {
+      overview: "A personal portfolio website showcasing my work and experience",
+      challenges: [
+        "Creating a responsive design that works across all devices",
+        "Implementing dark mode with smooth transitions",
+      ],
+      solutions: [
+        "Used Tailwind CSS for responsive design",
+        "Implemented theme switching using Next.js and React context",
+      ],
+      outcomes: [
+        "Fast, responsive website with great user experience",
+        "Improved online presence and project showcase",
+      ],
+    },
+  },
+  {
+    id: "gradient-tool",
+    title: "Gradient Generator Tool",
+    description: "Tool for modern developers to generate beautiful gradients",
+    sourceCode: "https://github.com/ManavChaudhary999/CSS-Gradient-Generator",
+    liveDemo: "https://css-gradient-generator-999.netlify.app/",
+    image: "/projects/gradient-tool.png",
+    technologies: ["React.js", "Webpack", "Babel"],
     caseStudy: {
       overview: "A personal portfolio website showcasing my work and experience",
       challenges: [
