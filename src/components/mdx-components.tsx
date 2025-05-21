@@ -1,5 +1,5 @@
 import { type MDXComponents } from 'mdx/types'
-import { Github, Linkedin, Twitter } from "lucide-react"
+import { Github, Linkedin, Mail, Twitter } from "lucide-react"
 import Link  from 'next/link'
 
 export const mdxComponents: MDXComponents = {
@@ -30,13 +30,16 @@ export const mdxComponents: MDXComponents = {
   SocialLinks: () => (
     <div className="flex space-x-4 mb-6">
         <Link href="https://twitter.com" aria-label="Twitter">
-            <Twitter className="h-5 w-5" />
+          <Twitter className="h-5 w-5" />
         </Link>
         <Link href="https://github.com" aria-label="GitHub">
-            <Github className="h-5 w-5" />
+          <Github className="h-5 w-5" />
         </Link>
         <Link href="https://linkedin.com" aria-label="LinkedIn">
-            <Linkedin className="h-5 w-5" />
+          <Linkedin className="h-5 w-5" />
+        </Link>
+        <Link href="mailto:999manavchaudhary@gmail.com" aria-label="Email">
+          <Mail className="h-5 w-5" />
         </Link>
     </div>
   ),

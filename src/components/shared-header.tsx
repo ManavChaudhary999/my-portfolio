@@ -1,6 +1,7 @@
 import { Avatar } from "~/components/ui/avatar"
 import { ThemeToggle } from "~/components/theme-toggle"
-import { Github, Linkedin, Twitter } from "lucide-react"
+import { Download, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { Button } from "~/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -29,7 +30,22 @@ export function SharedHeader() {
           <Link href="https://linkedin.com" aria-label="LinkedIn">
             <Linkedin className="h-5 w-5" />
           </Link>
+          <Link href="mailto:999manavchaudhary@gmail.com" aria-label="Email">
+            <Mail className="h-5 w-5" />
+          </Link>
         </div>
+
+        <Button
+          variant="outline"
+          size="sm"
+          className="mb-6"
+          asChild
+        >
+          <Link href="/ManavResume_v4.pdf" download>
+            <Download className="h-4 w-4 mr-2" />
+            Resume
+          </Link>
+        </Button>
 
         <div className="fixed top-4 right-4 z-50">
           <ThemeToggle />
