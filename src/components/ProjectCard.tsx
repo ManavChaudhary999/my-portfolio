@@ -3,7 +3,7 @@ import Image from "next/image"
 import { ChevronRight, Home, Github, Globe } from "lucide-react"
 import { Button } from "~/components/ui/button"
 
-import type { Project } from "~/types/project";
+import type { Project } from "~/types";
 
 export default function ProjectCard({ project } : { project: Project}) {
   return (

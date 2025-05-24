@@ -1,3 +1,6 @@
+import type { LucideProps } from "lucide-react";
+import type { ForwardRefExoticComponent, RefAttributes } from "react";
+
 export interface Project {
   id: string;
   title: string;
@@ -12,4 +15,10 @@ export interface Project {
     solutions: string[];
     outcomes: string[];
   };
+}
+
+export interface SocailLinks {
+  id: string;
+  link: string;
+  icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
 }

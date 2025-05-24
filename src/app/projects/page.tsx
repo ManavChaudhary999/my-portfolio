@@ -1,7 +1,7 @@
 import { ChevronRight, Home } from "lucide-react"
 import Link from "next/link"
 import ProjectCard from "~/components/ProjectCard"
-import { projects } from "~/data/projects"
+import { projects } from "~/data"
 
 export default function ProjectsPage() {
   return (

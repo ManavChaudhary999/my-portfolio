@@ -1,4 +1,5 @@
-import type { Project } from "~/types/project";
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import type { Project, SocailLinks } from "~/types";
 
 export const projects: Project[] = [
   {
@@ -226,5 +227,28 @@ export const projects: Project[] = [
         "Optimized data loading and display",
       ],
     },
+  },
+];
+
+export const sociallinks: SocailLinks[] = [
+  {
+    id: 'Github',
+    link: 'https://github.com/ManavChaudhary999',
+    icon: Github,
+  },
+  {
+    id: 'LinkedIn',
+    link: 'https://linkedin.com/in/manav-chaudhary-829909333',
+    icon: Linkedin,
+  },
+  // {
+  //   id: 'Twitter',
+  //   link: 'https://x.com/maclv999',
+  //   icon: Twitter,
+  // },
+  {
+    id: 'Gmail',
+    link: 'mailto:999manavchaudhary@gmail.com',
+    icon: Mail,
   },
 ];

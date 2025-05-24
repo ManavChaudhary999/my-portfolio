@@ -1,9 +1,11 @@
-import { Avatar } from "~/components/ui/avatar"
-import { ThemeToggle } from "~/components/theme-toggle"
-import { Download, Github, Linkedin, Mail, Twitter } from "lucide-react"
-import { Button } from "~/components/ui/button"
-import Image from "next/image"
+import React from "react"
 import Link from "next/link"
+import Image from "next/image"
+import { Avatar } from "~/components/ui/avatar"
+import { Button } from "~/components/ui/button"
+import { ThemeToggle } from "~/components/theme-toggle"
+import { Download } from "lucide-react"
+import { sociallinks } from "~/data"
 
 export function SharedHeader() {
   return (
@@ -21,18 +23,13 @@ export function SharedHeader() {
         <p className="text-muted-foreground mb-4">Full Stack Developer</p>
 
         <div className="flex space-x-4 mb-6">
-          <Link href="https://twitter.com" aria-label="Twitter">
-            <Twitter className="h-5 w-5" />
-          </Link>
-          <Link href="https://github.com" aria-label="GitHub">
-            <Github className="h-5 w-5" />
-          </Link>
-          <Link href="https://linkedin.com" aria-label="LinkedIn">
-            <Linkedin className="h-5 w-5" />
-          </Link>
-          <Link href="mailto:999manavchaudhary@gmail.com" aria-label="Email">
-            <Mail className="h-5 w-5" />
-          </Link>
+        {
+          sociallinks.map(({ id, link, icon }) => (
+            <Link href={link} aria-label={id} key={id} target="_blank">
+              {React.createElement(icon, { className: "h-5 w-5" })}
+            </Link>
+          ))
+        }
         </div>
 
         <Button

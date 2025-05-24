@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ChevronRight, Home } from "lucide-react"
-import { projects } from "~/data/projects"
+import { projects } from "~/data"
 import { notFound } from "next/navigation"
 
 export default function ProjectPage({ params }: { params: { id: string } }) {
