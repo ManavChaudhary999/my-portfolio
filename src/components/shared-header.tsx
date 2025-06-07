@@ -1,11 +1,14 @@
 import React from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { Download } from "lucide-react"
 import { Avatar } from "~/components/ui/avatar"
 import { Button } from "~/components/ui/button"
 import { ThemeToggle } from "~/components/theme-toggle"
-import { Download } from "lucide-react"
 import { sociallinks } from "~/data"
+import { debugRendering } from "~/lib/utils"
+
+debugRendering('SharedHeaderComponent');
 
 export function SharedHeader() {
   return (

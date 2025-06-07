@@ -1,7 +1,10 @@
+import Link from "next/link";
 import { FolderCode } from "lucide-react"
 import ProjectCard from "./ProjectCard"
 import { projects } from "~/data"
-import Link from "next/link";
+import { debugRendering } from "~/lib/utils";
+
+debugRendering('ProjectsComponent');
 
 export function Projects() {
   const featuredProjects = projects.slice(0, 4);

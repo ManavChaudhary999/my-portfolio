@@ -1,4 +1,7 @@
 import { Circle } from "lucide-react"
+import { debugRendering } from "~/lib/utils";
+
+debugRendering('ExperienceComponent');
 
 export function Experience() {
   const experiences = [

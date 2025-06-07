@@ -4,6 +4,9 @@ import path from 'path';
 import fs from 'fs/promises';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { mdxComponents } from "~/components/mdx-components";
+import { debugRendering } from "~/lib/utils";
+
+debugRendering('AboutPage');
 
 export default async function AboutPage() {
   const content = await fs.readFile(

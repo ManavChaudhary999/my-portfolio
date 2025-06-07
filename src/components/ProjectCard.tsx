@@ -2,8 +2,11 @@ import Link from "next/link"
 import Image from "next/image"
 import { ChevronRight, Home, Github, Globe } from "lucide-react"
 import { Button } from "~/components/ui/button"
-
 import type { Project } from "~/types";
+import { debugRendering } from "~/lib/utils";
+
+debugRendering('ProjectCardComponent');
+
 
 export default function ProjectCard({ project } : { project: Project}) {
   return (

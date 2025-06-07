@@ -3,6 +3,9 @@ import Image from "next/image"
 import { ChevronRight, Home } from "lucide-react"
 import { projects } from "~/data"
 import { notFound } from "next/navigation"
+import { debugRendering } from "~/lib/utils"
+
+debugRendering('ProjectDetailsPage');
 
 export default function ProjectPage({ params }: { params: { id: string } }) {
   const project = projects.find((p) => p.id === params.id)

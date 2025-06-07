@@ -1,4 +1,7 @@
 import React from "react";
+import { debugRendering } from "~/lib/utils";
+
+debugRendering('SharedFooterComponent');
 
 export function SharedFooter() {
   return (

@@ -1,8 +1,10 @@
 import Link from "next/link"
-import { Navigation } from "~/components/navigation"
 import { Smile } from "lucide-react"
 import { Experience } from "~/components/experience"
 import { Projects } from "~/components/projects"
+import { debugRendering } from "~/lib/utils"
+
+debugRendering('HomePage');
 
 export default function HomePage() {
   return (

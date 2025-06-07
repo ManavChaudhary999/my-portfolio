@@ -6,6 +6,7 @@
 - [x] Add projects specific page
     - - [x] Edit Project details
     - - [ ] Add Case Studies
+    - - [ ] Add Card Animations and Sound
 - [ ] Add Contact me page
 - [x] Add Footer
 - [x] Add Resume Download Button

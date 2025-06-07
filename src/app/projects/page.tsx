@@ -2,6 +2,9 @@ import { ChevronRight, Home } from "lucide-react"
 import Link from "next/link"
 import ProjectCard from "~/components/ProjectCard"
 import { projects } from "~/data"
+import { debugRendering } from "~/lib/utils"
+
+debugRendering("ProjectsPage")
 
 export default function ProjectsPage() {
   return (
