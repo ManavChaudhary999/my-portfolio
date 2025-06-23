@@ -1,12 +1,17 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { cn } from '~/lib/utils';
+import { InteractiveParticles, MouseRipples, ParticleTrails } from './InteractiveParticle';
 
+// Custom hook for parallax scrolling
+const useParallax = (speed: number = 1) => {
+  const { scrollYProgress } = useScroll();
+  return useTransform(scrollYProgress, [0, 1], [0, speed * -100]);
+};
 
-// Floating Particles Animation (like soot sprites or forest spirits)
 interface Particle {
   id: number;
   x: number;
@@ -15,10 +20,11 @@ interface Particle {
   duration: number;
   delay: number;
 }
-export const FloatingParticles: React.FC = () => {
-  const {theme} = useTheme();
 
+export const FloatingParticles: React.FC = () => {
+  const { theme } = useTheme();
   const [particles, setParticles] = useState<Particle[]>([]);
+  const parallaxY = useParallax(0.3); // Slow parallax
 
   useEffect(() => {
     const newParticles: Particle[] = Array.from({ length: 25 }, (_, i) => ({
@@ -33,7 +39,10 @@ export const FloatingParticles: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <motion.div 
+      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
+      style={{ y: parallaxY }}
+    >
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
@@ -61,11 +70,11 @@ export const FloatingParticles: React.FC = () => {
           }}
         />
       ))}
-    </div>
+    </motion.div>
   );
 };
 
-// Floating Leaves Animation
+// Floating Leaves Animation with Parallax
 interface Leaf {
   id: number;
   x: number;
@@ -75,9 +84,11 @@ interface Leaf {
   duration: number;
   delay: number;
 }
+
 export const FloatingLeaves: React.FC = () => {
-  const {theme} = useTheme();
+  const { theme } = useTheme();
   const [leaves, setLeaves] = useState<Leaf[]>([]);
+  const parallaxY = useParallax(0.5); // Medium parallax
 
   useEffect(() => {
     const newLeaves: Leaf[] = Array.from({ length: 12 }, (_, i) => ({
@@ -111,7 +122,10 @@ export const FloatingLeaves: React.FC = () => {
   const leafColors = theme === 'light' ? lightLeafColors : darkLeafColors;
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <motion.div 
+      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
+      style={{ y: parallaxY }}
+    >
       {leaves.map((leaf, index) => (
         <motion.div
           key={leaf.id}
@@ -144,14 +158,19 @@ export const FloatingLeaves: React.FC = () => {
           />
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
-// Gentle Wind Waves Animation
+// Gentle Wind Waves Animation with Parallax
 export const WindWaves: React.FC = () => {
+  const parallaxY = useParallax(0.2); // Slow parallax for background effect
+
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <motion.div 
+      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
+      style={{ y: parallaxY }}
+    >
       {[...Array(4)].map((_, i) => (
         <motion.div
           key={i}
@@ -176,11 +195,10 @@ export const WindWaves: React.FC = () => {
           }}
         />
       ))}
-    </div>
+    </motion.div>
   );
 };
 
-// Magical Sparkles Animation
 interface Sparkle {
   id: number;
   x: number;
@@ -191,6 +209,7 @@ interface Sparkle {
 }
 export const MagicalSparkles: React.FC = () => {
   const [sparkles, setSparkles] = useState<Particle[]>([]);
+  const parallaxY = useParallax(0.7); // Fast parallax for foreground effect
 
   useEffect(() => {
     const newSparkles: Particle[] = Array.from({ length: 20 }, (_, i) => ({
@@ -205,7 +224,10 @@ export const MagicalSparkles: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <motion.div 
+      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
+      style={{ y: parallaxY }}
+    >
       {sparkles.map((sparkle) => (
         <motion.div
           key={sparkle.id}
@@ -238,11 +260,10 @@ export const MagicalSparkles: React.FC = () => {
           />
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
-// Cloud Movement Animation
 interface Cloud {
   id: number;
   size: number;
@@ -251,6 +272,8 @@ interface Cloud {
   delay: number;
 }
 export const DriftingClouds: React.FC = () => {
+  const parallaxY = useParallax(0.1); // Very slow parallax for distant effect
+  
   const clouds: Cloud[] = [
     { id: 1, size: 120, y: 8, duration: 50, delay: 0 },
     { id: 2, size: 90, y: 20, duration: 40, delay: 8 },
@@ -259,7 +282,10 @@ export const DriftingClouds: React.FC = () => {
   ];
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <motion.div 
+      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
+      style={{ y: parallaxY }}
+    >
       {clouds.map((cloud) => (
         <motion.div
           key={cloud.id}
@@ -282,14 +308,15 @@ export const DriftingClouds: React.FC = () => {
           }}
         />
       ))}
-    </div>
+    </motion.div>
   );
 };
 
-// Paper Texture Particles - Like old paper or parchment bits
+// Paper Texture Particles with Parallax
 export const PaperTexture: React.FC = () => {
   const { theme } = useTheme();
   const [papers, setPapers] = useState<Particle[]>([]);
+  const parallaxY = useParallax(0.4); // Medium-slow parallax
 
   useEffect(() => {
     const newPapers: Particle[] = Array.from({ length: 8 }, (_, i) => ({
@@ -304,13 +331,16 @@ export const PaperTexture: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <motion.div 
+      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
+      style={{ y: parallaxY }}
+    >
       {papers.map((paper) => (
         <motion.div
           key={paper.id}
           className={cn(
             "absolute blur-[0.5px]",
-            theme === 'light'? 'bg-lime-700' : 'bg-zinc-200'
+            theme === 'light' ? 'bg-lime-700' : 'bg-zinc-200'
           )}
           style={{
             width: paper.size,
@@ -333,22 +363,45 @@ export const PaperTexture: React.FC = () => {
           }}
         />
       ))}
-    </div>
+    </motion.div>
+  );
+};
+
+// New: Parallax Background Texture
+export const ParallaxBackgroundTexture: React.FC = () => {
+  const parallaxY = useParallax(0.05); // Very slow for deep background effect
+  
+  return (
+    <motion.div 
+      className="fixed inset-0 pointer-events-none z-0"
+      style={{ 
+        y: parallaxY,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d97706' fill-opacity='0.06'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3Ccircle cx='37' cy='37' r='1'/%3E%3Ccircle cx='52' cy='15' r='1'/%3E%3Ccircle cx='15' cy='52' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        opacity: 0.25,
+      }}
+    />
+  );
+};
+
+// New: Scroll-based Gradient Overlay
+export const ScrollGradientOverlay: React.FC = () => {
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0.1, 0.2, 0.3]);
+  
+  return (
+    <motion.div
+      className="fixed inset-0 pointer-events-none z-0 bg-gradient-to-b from-transparent via-amber-600 to-amber-300/70"
+      style={{
+        opacity,
+      }}
+    />
   );
 };
 
 export default function BackgroundAnimation() {  
   return (
     <>
-      {/* Background Texture */}
-      <div 
-        className="fixed inset-0 pointer-events-none z-0" 
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d97706' fill-opacity='0.06'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3Ccircle cx='37' cy='37' r='1'/%3E%3Ccircle cx='52' cy='15' r='1'/%3E%3Ccircle cx='15' cy='52' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          opacity: 0.25,
-        }}
-      />      
-      {/* Active Animations */}
+      {/* Layered Parallax Effects - Ordered from background to foreground */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -356,12 +409,28 @@ export default function BackgroundAnimation() {
         transition={{ duration: 2 }}
         className="z-0"
       >
+        {/* Layer 1: Deep background (slowest) */}
+        <ParallaxBackgroundTexture />
         <DriftingClouds />
-        <FloatingLeaves />
-        <FloatingParticles />
-        <MagicalSparkles />
+        
+        {/* Layer 2: Mid-background */}
         <WindWaves />
         <PaperTexture />
+        
+        {/* Layer 3: Mid-foreground */}
+        <FloatingParticles />
+        <FloatingLeaves />
+        
+        {/* Layer 4: Foreground (fastest) */}
+        <MagicalSparkles />
+        
+        {/* Layer 5: Scroll-based overlay */}
+        <ScrollGradientOverlay />
+
+        {/* Interactive Effects */}
+        <MouseRipples />
+        {/* <ParticleTrails /> */}
+        <InteractiveParticles />
       </motion.div>
     </>
   );

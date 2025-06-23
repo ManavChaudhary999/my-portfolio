@@ -36,13 +36,13 @@ export function SharedHeader() {
         </div>
 
         <Button
-          variant="outline"
+          variant="default"
           size="sm"
           className="mb-6"
           asChild
         >
           <Link href="/ManavResume_v4.pdf" download>
-            <Download className="h-4 w-4 mr-2" />
+            <Download className="h-4 w-4 mr-1" />
             Resume
           </Link>
         </Button>

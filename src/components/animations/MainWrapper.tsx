@@ -8,7 +8,7 @@ export default function MainAnimationWrapper({ className, children } : { classNa
             className={className}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 5 }}
         >
             {children}
         </motion.main>

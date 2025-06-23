@@ -6,12 +6,14 @@
 - [x] Add projects specific page
     - - [x] Edit Project details
     - - [ ] Add Case Studies
-    - - [ ] Add Card Animations and Sound
 - [ ] Add Contact me page
 - [x] Add Footer
 - [x] Add Resume Download Button
 - [x] Edit Social Links
 - [ ] Add Animations
+    - - [x] Add Background Animation
+    - - [ ] Add Projcet Card Animations and Sound
+    - - [ ] Reduce animation toggle
 - [ ] Scrollbar UI Color fix in light mode
 - [ ] Bonus: Add Dark/Light toggle sound
 - [ ] Bonus: Add gif favicon

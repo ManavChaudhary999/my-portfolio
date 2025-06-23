@@ -6,9 +6,9 @@ import { ThemeProvider } from "~/components/theme-provider"
 import { SharedHeader } from "~/components/shared-header"
 // import { Navigation } from "~/components/navigation"
 import { SharedFooter } from "~/components/shared-footer"
-import BackgroundAnimation from "~/components/animations/BackgroundAnimation";
 import { debugRendering } from "~/lib/utils"
 import MainAnimationWrapper from "~/components/animations/MainWrapper"
+import BackgroundAnimation from "~/components/animations/BackgroundAnimation";
 
 debugRendering('RootLayout');
 
